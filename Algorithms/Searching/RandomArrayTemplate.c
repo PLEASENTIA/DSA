@@ -1,35 +1,17 @@
 #include <stdio.h>
-#include <stdbool.h>
-#include <stdlib.h> //for random values feature
-#include <time.h> //for random values feature
-#define LENGTH 10
-void Random(int *arr, int *element);
+#include <stdlib.h>
+#include <time.h>
+int Random();
 int main(){
-  int element, index;
-  int arr[LENGTH];
-  bool found=false;
-  Random(arr, &element);
-  printf("LINEAR SEARCH");
-  for(int i=0; i<LENGTH; i++){
-    if(arr[i]==element){
-      found=true;
-      index=i;
-      break;
-    }
-  }
-  if(found){
-    printf("\nElement %d found at index %d.\n", element, index);
-  }
-  else{
-    printf("\nElement not found in the array.\n");
-  }
-  printf("--------------------------------------------------------------\n");
+  Random();
   return 0;
 }
-//Random Values Assigner
-void Random(int *arr, int *element){
+
+int Random(){
   srand(time(NULL));
+  int arr[10];
   int Option1, Option2;
+  int element;
   //Array choosing
   while(1){
     printf("--------------------------------------------------------------\n");
@@ -37,13 +19,13 @@ void Random(int *arr, int *element){
     scanf("%d", &Option1);
     if(Option1==1){
       printf("Enter elements separated with spaces(Max 10 elements): ");
-      for(int i=0; i<LENGTH; i++){
+      for(int i=0; i<10; i++){
         scanf("%d", &arr[i]);
       }
       break;
     }
     else if(Option1==2) {
-      for(int i=0; i<LENGTH; i++){
+      for(int i=0; i<10; i++){
         arr[i]=rand()%100;
       }
       break;
@@ -65,7 +47,7 @@ void Random(int *arr, int *element){
       break;
     }
     else if(Option2==2) {
-      *element=arr[rand() % LENGTH];
+      element=arr[rand() % 10];
       break;
     }
     else{
@@ -77,9 +59,9 @@ void Random(int *arr, int *element){
   //Printing Choices
   printf("--------------------------------------------------------------\n");
   printf("Array: ");
-  for(int i=0; i<LENGTH; i++){
+  for(int i=0; i<10; i++){
     printf("%d ", arr[i]);
   }
-  printf("\nElement: %d\n", *element);
+  printf("\nElement: %d\n", element);
   printf("--------------------------------------------------------------\n");
 }
