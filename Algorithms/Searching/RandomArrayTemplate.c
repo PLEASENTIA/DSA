@@ -3,12 +3,12 @@
 #include <time.h>
 int Random();
 int main(){
+  srand(time(NULL));
   Random();
   return 0;
 }
 
 int Random(){
-  srand(time(NULL));
   int arr[10];
   int Option1, Option2;
   int element;
@@ -43,7 +43,7 @@ int Random(){
     scanf("%d", &Option2);
     if(Option2==1){
       printf("Enter the element to search for: ");
-      scanf("%d", &element);
+      scanf("%d", &(*element));
       break;
     }
     else if(Option2==2) {

@@ -5,6 +5,7 @@
 #define LENGTH 10
 void Random(int *arr);
 int main(){
+  srand(time(NULL));
   int index;
   int arr[LENGTH];
   Random(arr);
@@ -27,7 +28,6 @@ int main(){
 }
 //Random Values Assigner
 void Random(int *arr){
-  srand(time(NULL));
   int Option1, Option2;
   //Array choosing
   while(1){

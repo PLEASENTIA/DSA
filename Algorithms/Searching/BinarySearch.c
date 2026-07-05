@@ -6,6 +6,7 @@
 void Random(int *arr, int *element);
 void SortArray(int *arr);
 int main(){
+  srand(time(NULL));
   int element, index, mid, high, low;
   int arr[LENGTH];
   bool found=false;
@@ -40,7 +41,6 @@ int main(){
 }
 //Random Values Assigner
 void Random(int *arr, int *element){
-  srand(time(NULL));
   int Option1, Option2;
   //Array choosing
   while(1){
@@ -73,7 +73,7 @@ void Random(int *arr, int *element){
     scanf("%d", &Option2);
     if(Option2==1){
       printf("Enter the element to search for: ");
-      scanf("%d", &element);
+      scanf("%d", &(*element));
       break;
     }
     else if(Option2==2) {
