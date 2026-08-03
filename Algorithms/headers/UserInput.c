@@ -59,6 +59,10 @@ void PrintChoice(int arr[], int element, int LENGTH) {
   for (int i = 0; i < LENGTH; i++) {
     printf("%d ", arr[i]);
   }
-  printf("\nElement: %d\n", element);
-  printf("--------------------------------------------------------------\n");
+  if (element != (-1)) {
+    printf("\nElement: %d\n", element);
+    printf("--------------------------------------------------------------\n");
+  } else {
+    printf("\n");
+  }
 }
