@@ -4,7 +4,6 @@
 #include <stdlib.h> //for random values feature
 #include <time.h>   //for random values feature
 #define LENGTH 10
-void Random(int *arr, int *element);
 void SortArray(int *arr);
 int main() {
   srand(time(NULL));
