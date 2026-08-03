@@ -1,66 +1,31 @@
-#include <stdio.h>
+#include "UserInput.h"
 #include <stdbool.h>
+#include <stdio.h>
 #include <stdlib.h> //for random values feature
-#include <time.h> //for random values feature
+#include <time.h>   //for random values feature
 #define LENGTH 10
-void Random(int *arr);
-int main(){
+int main() {
   srand(time(NULL));
   int index;
   int arr[LENGTH];
-  Random(arr);
+  UserInputArray(arr, LENGTH);
+  PrintChoice(arr, -1, LENGTH);
   printf("SELECTION SORT");
-  for(int i=0;i<LENGTH;i++){
-    int min=i;
-    for(int j=i;j<LENGTH;j++){
-      if(arr[j]<arr[min]){
-        min=j;
+  for (int i = 0; i < LENGTH; i++) {
+    int min = i;
+    for (int j = i; j < LENGTH; j++) {
+      if (arr[j] < arr[min]) {
+        min = j;
       }
     }
-    int temp=arr[min];
-    arr[min]=arr[i];
-    arr[i]=temp;
+    int temp = arr[min];
+    arr[min] = arr[i];
+    arr[i] = temp;
   }
   printf("\nSorted Array: ");
-  for(int i=0; i<LENGTH; i++){
+  for (int i = 0; i < LENGTH; i++) {
     printf("%d ", arr[i]);
   }
   printf("\n--------------------------------------------------------------\n");
   return 0;
-}
-//Random Values Assigner
-void Random(int *arr){
-  int Option1, Option2;
-  //Array choosing
-  while(1){
-    printf("--------------------------------------------------------------\n");
-    printf("Enter the elements in array:\n1 - Manual\t2 - Random\nChoose: ");
-    scanf("%d", &Option1);
-    if(Option1==1){
-      printf("Enter elements separated with spaces(Max 10 elements): ");
-      for(int i=0; i<LENGTH; i++){
-        scanf("%d", &arr[i]);
-      }
-      break;
-    }
-    else if(Option1==2) {
-      for(int i=0; i<LENGTH; i++){
-        arr[i]=rand()%100;
-      }
-      break;
-    }
-    else{
-      printf("Choose from options.\n");
-      continue;
-    }
-    printf("--------------------------------------------------------------\n");
-  }
-  //Printing Choices
-  printf("--------------------------------------------------------------\n");
-  printf("Array: ");
-  for(int i=0; i<LENGTH; i++){
-    printf("%d ", arr[i]);
-  }
-  printf("\n");
-  printf("--------------------------------------------------------------\n");
 }
