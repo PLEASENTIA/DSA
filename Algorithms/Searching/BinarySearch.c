@@ -12,6 +12,7 @@ int main() {
   bool found = false;
   UserInputArray(arr, LENGTH);
   UserInputElement(arr, &element, LENGTH);
+  SortArray(arr);
   PrintChoice(arr, element, LENGTH);
   printf("BINARY SEARCH");
   high = LENGTH - 1;
@@ -24,9 +25,9 @@ int main() {
       index = mid;
       break;
     } else if (element > arr[mid]) {
-      low = mid;
+      low = mid + 1;
     } else if (element < arr[mid]) {
-      high = mid;
+      high = mid - 1;
     }
   }
   if (found) {
@@ -37,4 +38,15 @@ int main() {
 
   printf("--------------------------------------------------------------\n");
   return 0;
+}
+void SortArray(int *arr) { // Bubble Sort
+  for (int j = 0; j < LENGTH; j++) {
+    for (int i = 0; i < LENGTH - j - 1; i++) {
+      if (arr[i] > arr[i + 1]) {
+        int temp = arr[i];
+        arr[i] = arr[i + 1];
+        arr[i + 1] = temp;
+      }
+    }
+  }
 }
