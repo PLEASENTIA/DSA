@@ -11,8 +11,6 @@ int main() {
   int arr[LENGTH];
   UserInputArray(arr, LENGTH);
   PrintChoice(arr, -1, LENGTH);
-  // Make another function in UserInput.c and update .h which does not have
-  // element as parameter for PrintChoice.
   printf("BUBBLE SORT");
   for (int j = 0; j < LENGTH; j++) {
     for (int i = 0; i < LENGTH - j - 1; i++) {
