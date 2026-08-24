@@ -3,7 +3,7 @@ CFLAGS = -I ../headers
 
 COMMON = ../headers/UserInput.c
 
-PROGRAMS = BubbleSort InsertionSort SelectionSort MergeSort
+PROGRAMS = BubbleSort InsertionSort SelectionSort MergeSort QuickSort
 all: $(PROGRAMS)
 
 %: %.c $(COMMON)
